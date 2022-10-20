@@ -14,3 +14,5 @@
 const average = () => {};
 
 module.exports = average;
+
+// compare pull request
