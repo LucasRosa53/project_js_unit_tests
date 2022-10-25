@@ -13,9 +13,9 @@ const productDetails = require('../src/productDetails');
   [
     {
       name: 'Alcool gel'
-      details: {
+     details: {
         productId: 'Alcool gel123'
-      }
+      } 
     },
     {
       name: 'Máscara'
@@ -42,10 +42,11 @@ describe('6 - Implemente os casos de teste para a função `productDetails`', ()
     expect(typeof productDetails('pam1', 'pam2')[0]).toBe('object')
     expect(typeof productDetails('pam1', 'pam2')[1]).toBe('object')
     // Teste se os dois itens dentro do array retornado pela função são objetos.
-    // expect(productDetails('pam1', 'pam2')).not.toEqual(productDetails('pam1', 'pam2'))
     expect(productDetails('pam1', 'pam2')[0]).not.toEqual(productDetails('pam1', 'pam2')[1])
     // Teste se quando passado parâmetros diferentes entre si, os dois objetos também são diferentes entre si.
-    
+    expect(productDetails('Alcool gel', 'Máscara')[0].details).toMatchObject({productId: 'Alcool gel123'})
+    expect(productDetails('Alcool gel', 'Máscara')[1].details).toMatchObject({productId: 'Máscara123'})
     // Teste se os dois productIds terminam com 123.
   });
+  
 });
